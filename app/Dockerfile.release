@@ -1,0 +1,18 @@
+FROM elixir:alpine
+
+EXPOSE 8000
+ENV TERM=xterm \
+    PORT=8000 \
+    REPLACE_OS_VARS=true \
+    HOST=localhost
+
+RUN \
+    apk update && \
+    apk --no-cache --update add bash && \
+    rm -rf /var/cache/apk/*
+
+WORKDIR /app
+COPY ./_build/prod/rel/app/releases/0.0.1/app.tar.gz ./
+RUN tar xfz app.tar.gz
+
+CMD ["./bin/app foreground"]

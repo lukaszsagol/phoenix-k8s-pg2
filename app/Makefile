@@ -27,7 +27,7 @@ build:
 .PHONY: build
 
 build_release:
-	$(DOCKER) run -it -p $(PORT):$(PORT) -e DISPLAY=$(IP):0 -v /tmp/.X11-unix:/tmp/.X11-unix -v "$(CURDIR)":/code $(BUILD_CONTAINER) mix release
+	$(DOCKER) run -it -v "$(CURDIR)":/code -e MIX_ENV=prod $(BUILD_CONTAINER) mix release --env prod
 	$(DOCKER) build -t $(RELEASE_CONTAINER) -f Dockerfile.release .
 .PHONY: build_release
 
