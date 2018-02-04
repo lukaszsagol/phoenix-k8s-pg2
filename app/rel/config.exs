@@ -37,6 +37,8 @@ environment :prod do
   set include_erts: true
   set include_src: false
   set cookie: :"*~|t{ESTzx&OQrV.3U`68S[r|&2)KZ@aM3`H,eC:}!%/@DMX;oh6Y}x/ZqFmv}uO"
+
+  plugin Conform.ReleasePlugin
 end
 
 # You may define one or more releases in this file.

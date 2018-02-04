@@ -26,7 +26,7 @@ build:
 	$(DOCKER) build -t $(BUILD_CONTAINER) -f Dockerfile.build .
 .PHONY: build
 
-build_release:
+release:
 	$(DOCKER) run -it -v "$(CURDIR)":/code -e MIX_ENV=prod $(BUILD_CONTAINER) mix release --env prod
 	$(DOCKER) build -t $(RELEASE_CONTAINER) -f Dockerfile.release .
 .PHONY: build_release

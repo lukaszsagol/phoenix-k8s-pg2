@@ -1,2 +1,2 @@
 <pre>Value: <%= @value %></pre>
-<pre>Process: <%= System.get_pid() %></pre>
+<pre>Process: <%= Application.get_env(:app, :pod_ip) || "blank" %></pre>

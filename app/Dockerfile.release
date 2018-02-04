@@ -15,4 +15,4 @@ WORKDIR /app
 COPY ./_build/prod/rel/app/releases/0.0.1/app.tar.gz ./
 RUN tar xfz app.tar.gz
 
-CMD ["./bin/app foreground"]
+CMD ["./bin/app", "foreground"]
